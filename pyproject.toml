@@ -9,4 +9,5 @@ dependencies = [
     "matplotlib>=3.10.8",
     "numpy>=2.3.5",
     "rasterio>=1.4.4",
+    "sap>=1.0.0",
 ]
