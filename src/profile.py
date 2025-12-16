@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sap
 import rasterio as rio
-from attribute_std import attribute_standard_deviation
+from .attribute_std import attribute_standard_deviation
 
 
 def spectrum2d_with_custom_attrs(tree, x_attribute, y_attribute, x_count=100, y_count=100,
@@ -258,7 +258,8 @@ def visualize_pattern_spectra(spectra, figsize=(14, 5), log_scale=True):
     if n_spectra == 1:
         axes = [axes]
     
-    for ax, (attr1, attr2, s, xe, ye, xl, yl) in zip(axes, spectra):
+    for idx, (ax, (attr1, attr2, s, xe, ye, xl, yl)) in enumerate(zip(axes, spectra)):
+        plt.sca(ax)
         sap.show_spectrum(s, xe, ye, xl, yl, log_scale=log_scale)
         ax.set_xlabel(attr1.replace('_', ' ').title())
         ax.set_ylabel(attr2.replace('_', ' ').title())
